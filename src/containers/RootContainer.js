@@ -1,25 +1,36 @@
 // @flow
 import React from 'react'
-import { Text, SafeAreaView, StyleSheet } from 'react-native'
+
+import { Text } from 'react-native'
 
 // components
-import { RoundedButton } from '../components'
-import { Colors } from '../themes'
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.background,
-  },
-})
+import { ButtonHonza, Title, ScrollViewHonza } from '../components'
 
 export default class RootContainer extends React.PureComponent<null> {
+
+  _getRandomJolanda() {
+    const jolandaOracleArray = [
+      'A von hodně trpěl, protože trpěl!',
+      'Vás velice postihne velká dědičnost!',
+      'Vaše vztahy budou nadále vám dobře kvétat!',
+      'To je vysloveně magogie todleto',
+      'Nepřepínejte kanela!'
+    ];
+    alert(jolandaOracleArray[Math.floor(Math.random()*jolandaOracleArray.length)]);
+  }
+
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <Text>Text!</Text>
-        <RoundedButton onPress={() => null}>Button text</RoundedButton>
-      </SafeAreaView>
+      <ScrollViewHonza>
+        <Title color="black">
+          No tady sem cigánka Jolanda!
+        </Title>
+
+        <Text style={{textAlign: 'center'}}>Klikni obličej pro předpověď...</Text>
+
+        <ButtonHonza onPress={() => this._getRandomJolanda()} />
+
+      </ScrollViewHonza>
     )
   }
 }

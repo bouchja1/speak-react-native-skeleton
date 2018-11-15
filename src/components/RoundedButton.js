@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 
 type Props = {|
   +onPress: () => void,
-  +children: string,
+  +children: ImageHonza,
 |}
 
 export default class RoundedButton extends React.PureComponent<Props> {
@@ -28,7 +28,7 @@ export default class RoundedButton extends React.PureComponent<Props> {
     const { children, onPress } = this.props
     return (
       <TouchableOpacity onPress={onPress} style={styles.button}>
-        <Text>{children}</Text>
+        {children}
       </TouchableOpacity>
     )
   }
